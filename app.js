@@ -36,7 +36,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-      mongoUrl: process.env.MONGO_URI,
+      mongoUrl: 'mongodb+srv://ecommerce:ecommerce@ecommerce.dunf0.mongodb.net/',
       collectionName: 'sessions',
     }),
     cookie: {
@@ -55,7 +55,7 @@ app.use('/complaints', complaintsRoutes);
 app.use('/coupon',couponRoutes)
 
 // MongoDB Connection
-const uri = process.env.MONGO_URI;
+const uri = 'mongodb+srv://ecommerce:ecommerce@ecommerce.dunf0.mongodb.net/';
 mongoose.connect(uri)
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('MongoDB connection error:', err));
@@ -547,7 +547,7 @@ app.post('/find-my-order', async (req, res) => {
 
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
